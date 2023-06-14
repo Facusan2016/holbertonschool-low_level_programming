@@ -1,7 +1,13 @@
 #include <stdio.h>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-	char Toprint[] = "\"Programming is like building a multilingual puzzle";
-	puts(Toprint);
-	return (0);	
+	char toprint[] = "\"Programming is like building a multilingual puzzle";
+
+	puts(toprint);
+	return (0);
 }
