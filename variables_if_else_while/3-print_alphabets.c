@@ -12,11 +12,16 @@ int main(void)
 	{
 		putchar(i);
 	}
-	for (j = 65; j <= 90; j++)
+	j = 65;
+	while (j <= 90 && j != 37)
 	{
+		if (j == 90)
+		{
+			j = 36;
+		}
 		putchar(j);
+		j++;
 	}
-	putchar(36);
 	putchar('\n');
 	return (0);
 }
