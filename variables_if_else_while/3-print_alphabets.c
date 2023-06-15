@@ -12,15 +12,9 @@ int main(void)
 	{
 		putchar(i);
 	}
-	j = 65;
-	while (j <= 90 && j != 37)
+	for (j = 65; j <= 90; j++)
 	{
-		if (j == 90)
-		{
-			j = 36;
-		}
 		putchar(j);
-		j++;
 	}
 	putchar('\n');
 	return (0);
