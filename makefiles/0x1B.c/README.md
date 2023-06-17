@@ -1,1 +1,1 @@
-# 0x1B.c
+0 - First Makefile exercise
