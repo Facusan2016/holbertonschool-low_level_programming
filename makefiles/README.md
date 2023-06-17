@@ -1,1 +1,1 @@
-0 - Exercise about make files
+0 - First Makefile exercise
