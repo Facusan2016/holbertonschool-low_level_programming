@@ -8,7 +8,7 @@ NAME = school
 %.o: %.c
 	$(CC) -c $< -o $@
 
-all: $(OBJ)
+all: $(SRC)
 	$(CC) $(OBJ) -o $(NAME)
 
 
