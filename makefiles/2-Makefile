@@ -1,0 +1,11 @@
+#Makefile exercise 2
+
+CC = gcc
+SRC = main.c school.c 
+OBJ = main.o school.o
+NAME = school
+
+all:
+	$(CC)$(SRC) -o $(NAME): $(CC)$(OBJ) -c	
+
+
