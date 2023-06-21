@@ -7,9 +7,12 @@ NAME = school
 RM = rm -f
 
 %.o: %.c
+	echo $^
+	echo $@
 	$(CC) -c $^ -o $@
 
 all: $(OBJ)
+	echo $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 clean:

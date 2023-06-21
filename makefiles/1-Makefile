@@ -1,8 +1,14 @@
 #Makefile number 2.
 
 CC = gcc
-SRC = main.c school.c
+SRC = $(wildcard *.c)
+
+
+%.o: %.c
+	
 
 all:
+	echo $(SRC)
 	$(CC) $(SRC) -o school
-	
+
+
