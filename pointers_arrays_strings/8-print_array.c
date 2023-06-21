@@ -10,8 +10,8 @@
 void print_array(int *a, int n)
 {
 	int count = 0;
-	
-	while (count < n && count >= 0)
+
+	while (count < n && n > 0)
 	{
 		if (count == n - 1)
 			printf("%i\n", a[count]);
