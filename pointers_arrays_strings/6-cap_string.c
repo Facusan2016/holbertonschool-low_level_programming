@@ -8,7 +8,7 @@
 char *cap_string(char *c)
 {
 	char q[] = "' '\t\n,;.!?\"(){}";
-
+	char *ori = c;
 	int cnt1, cnt2;
 
 	for (cnt1 = 0; c[cnt1] != '\0'; cnt1++)
@@ -25,5 +25,5 @@ char *cap_string(char *c)
 		}
 	}
 
-	return (c);
+	return (ori);
 }
