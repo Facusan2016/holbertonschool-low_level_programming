@@ -7,20 +7,20 @@
 
 char *cap_string(char *c)
 {
-	char q[14] = {'\n','\t',' ',',',';','.','!','?','"','(',')','{','}','\0'};
+	char q[] = "' '\t\n,;.!?\"(){}";
 
-	int i, cnt1, cnt2;
+	int cnt1, cnt2;
 
-	for(cnt1 = 0; c[cnt1] != '\0'; cnt1++)
+	for (cnt1 = 0; c[cnt1] != '\0'; cnt1++)
 	{
-		if(c[cnt1] < 'a' || c[cnt1] > 'z')
+		if (c[cnt1] < 'a' || c[cnt1] > 'z')
 		{
 			cnt2 = 0;
 
-			while(c[cnt1] != q[cnt2] && q[cnt2] != '\0')
+			while (c[cnt1] != q[cnt2] && q[cnt2] != '\0')
 				cnt2++;
 
-			if(q[cnt2] != '\0' && c[cnt1 - 2] != '\0')
+			if (q[cnt2] != '\0' && c[cnt1 - 2] != '\0')
 				c[cnt1 + 1] = c[cnt1 + 1] - 32;
 		}
 	}
