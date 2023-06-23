@@ -10,6 +10,9 @@ char *cap_string(char *c)
 	char q[] = ",;.!?(){}\n\t\" ";
 	int cnt1, cnt2;
 
+	if(c[0] != '\0' && c[0] >= 'a' && c[0] <= 'z')
+		 c[0] = c[0] - 32;
+
 	for (cnt1 = 0; c[cnt1] != '\0'; cnt1++)
 	{
 		if (!(c[cnt1] >= 'a' && c[cnt1] <= 'z'))
