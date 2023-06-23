@@ -13,8 +13,5 @@ char *_strchr(char *s, char c)
 	while (*iter != '\0' && *iter != c)
 		iter++;
 
-	if (*iter != '\0')
-		return (iter);
-	else
-		return (0);
+	return (iter);
 }
