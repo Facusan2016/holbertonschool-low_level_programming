@@ -23,6 +23,7 @@ int _atoi(char *s)
 			atoiNum = (atoiNum * 10 + (s[iter] - 48));
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
 				break;
+				break;
 			iter++;
 		}
 
