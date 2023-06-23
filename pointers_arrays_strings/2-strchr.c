@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 /**
  * _strchr - This function returns a pointer to the first ocurrence of c in s
  * @s: Pointer to a String.
@@ -13,5 +14,9 @@ char *_strchr(char *s, char c)
 	while (*iter != '\0' && *iter != c)
 		iter++;
 
+	if (*iter != c)
+		iter = NULL;
+
 	return (iter);
+
 }
