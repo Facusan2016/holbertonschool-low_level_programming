@@ -1,4 +1,4 @@
-#include "main.h"
+i#include "main.h"
 /**
  * _atoi - A function that converts a string to an integer
  * @s: Pointer to a string
@@ -13,8 +13,6 @@ int _atoi(char *s)
 
 	int sign = 1;
 
-	int flag = 0;
-
 	while (s[iter] != '\0' && flag == 0)
 	{
 		if (s[iter] == '-')
@@ -24,7 +22,7 @@ int _atoi(char *s)
 		{
 			atoiNum = (atoiNum * 10 + (s[iter] - 48));
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
-				flag = 1;
+				break;
 			iter++;
 		}
 
