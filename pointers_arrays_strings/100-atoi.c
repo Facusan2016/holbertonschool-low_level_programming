@@ -1,4 +1,4 @@
-i#include "main.h"
+#include "main.h"
 /**
  * _atoi - A function that converts a string to an integer
  * @s: Pointer to a string
