@@ -12,7 +12,7 @@ char *_strstr(char *haystack, char *needle)
 	char *iter = haystack;
 	char *pivot;
 	
-	if(needle == '\0')
+	if(needle[0] == '\0')
 		return (haystack);
 
 	while (*iter != '\0')
