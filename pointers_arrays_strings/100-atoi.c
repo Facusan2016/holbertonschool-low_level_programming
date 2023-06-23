@@ -22,11 +22,9 @@ int _atoi(char *s)
 
 		while (s[iter] >= '0' && s[iter] <= '9' && flag == 0)
 		{
-			if (atoiNum < 0)
-			{
-				atoiNum = atoiNum * 10 + s[iter] + 48);
-			}
 
+			atoiNum = atoiNum * 10 + s[iter] + 48;
+			
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
 				flag = 1;
 			iter++;
