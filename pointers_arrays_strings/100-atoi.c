@@ -13,17 +13,18 @@ int _atoi(char *s)
 
 	int sign = 1;
 
-	while (s[iter] != '\0')
+	int flag = 0;
+
+	while (s[iter] != '\0' && flag == 0)
 	{
 		if (s[iter] == '-')
 			sign *= -1;
 
-		while (s[iter] >= '0' && s[iter] <= '9')
+		while (s[iter] >= '0' && s[iter] <= '9' && flag == 0)
 		{
 			atoiNum = (atoiNum * 10 + (s[iter] - 48));
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
-				break;
-				break;
+				flag = 1;
 			iter++;
 		}
 
