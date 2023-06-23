@@ -24,10 +24,7 @@ int _atoi(char *s)
 		{
 			if (atoiNum < 0)
 			{
-				atoiNum = (atoiNum * 10) - (s[iter] - 48);
-			} else
-			{
-				atoiNum = -1 * ((atoiNum * 10) - (s[iter] - 48)) * -1;
+				atoiNum = atoiNum * 10 + s[iter] + 48);
 			}
 
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
