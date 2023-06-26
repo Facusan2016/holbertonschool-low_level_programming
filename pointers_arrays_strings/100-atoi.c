@@ -7,7 +7,9 @@
 
 int _atoi(char *s)
 {
-	int atoiNum = 0;
+	unsigned int atoiNum = 0;
+
+	int returned = 0;
 
 	int iter = 0;
 
@@ -22,7 +24,13 @@ int _atoi(char *s)
 
 		while (s[iter] >= '0' && s[iter] <= '9' && flag == 0)
 		{
-			atoiNum = (atoiNum * 10 + (s[iter] - 48));
+			if (atoiNum > 0)
+			{
+				atoiNum = (atoiNum * 10);
+				atoiNum *= -1;
+				atoiNum -= s[iter] + 48;
+			}
+
 			if (!(s[iter + 1] >= '0' && s[iter + 1] <= '9'))
 				flag = 1;
 			iter++;
@@ -32,6 +40,8 @@ int _atoi(char *s)
 
 	}
 
-	return (atoiNum * sign);
+	returned = atoiNum;
+
+	return (returned * sign);
 
 }
