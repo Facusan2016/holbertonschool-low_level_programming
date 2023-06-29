@@ -1,5 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
+/**
+ * checkIfAllNum - Entry point
+ * @str: Arguments counter
+ * Return: Always 0 (Success)
+ */
+
+int checkIfAllNum(char *str)
+{
+
+	while (*str != '\0' && isdigit(*str) != 0)
+		str++;
+	if (*str == '\0')
+		return (1);
+	else
+		return (0);
+
+}
+
 /**
  * main - Entry point
  * @argc: Arguments counter
@@ -18,7 +38,7 @@ int main(int argc, char *argv[])
 		int i = 1;
 		int sum = 0;
 
-		while (i < argc && atoi(argv[i]) != 0)
+		while (i < argc && checkIfAllNum(argv[i]) != 0)
 		{
 			sum += atoi(argv[i]);
 			i++;
