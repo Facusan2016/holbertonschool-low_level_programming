@@ -22,6 +22,8 @@ int *array_range(int min, int max)
 	{
 		p = malloc(sizeof(int));
 		p[0] = min;
+
+		return (p);
 	}
 
 	p = malloc(sizeof(int) * (max - min));
