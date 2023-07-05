@@ -6,14 +6,15 @@
  * _calloc - Allocates memory for an array.
  * @nmemb: Second String.
  * @size: The first n bytes to copy.
+ * void: prototype
  * Return: Pointer to the String.
  */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 
-	void *p;
-	int *q;
+	void *p = 0;
+	char *q = 0;
 	unsigned int i = 0;
 
 	if (nmemb == 0 || size == 0)
@@ -24,11 +25,11 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (p == NULL)
 		return (NULL);
 
-	q = p;
+	q = p;	
 
 	while (i < nmemb)
 	{
-		*(q + (size * nmemb)) = 0;
+		q[i] = 0;
 		i++;
 	}
 
