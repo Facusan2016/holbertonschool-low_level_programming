@@ -12,7 +12,7 @@
 
 int argslen(int ac, char **av)
 {
-	int i = 1;
+	int i = 0;
 	unsigned int tlen = 0;
 
 	while (i < ac)
@@ -49,7 +49,7 @@ char *argstostr(int ac, char **av)
 	if (p == NULL)
 		return (NULL);
 
-	tcor = 1;
+	tcor = 0;
 	j = 0;
 
 	for (i = 0; i < (tlen + (ac - 1)) && av[tcor] != NULL; i++)
