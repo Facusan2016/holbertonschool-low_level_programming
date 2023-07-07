@@ -39,15 +39,14 @@ int wordcnt(char *str)
 char **strtow(char *str)
 {
 	int i = 0, count = 0, j = 0;
-	char **p;
+	char **p = NULL;
 
-	if (str == NULL || strlen(str) == 0 || *str == ' ')
+	if (str == NULL || strlen(str) == 0)
 		return (NULL);
-	p = malloc(sizeof(*p) * (wordcnt(str) + 1));
-
+	if (wordcnt(str) > 0)
+		p = malloc(sizeof(*p) * (wordcnt(str) + 1));
 	if (p == NULL)
 		return (NULL);
-
 	for (; i < (wordcnt(str)); i++)
 	{
 		while (str[j] == ' ')
