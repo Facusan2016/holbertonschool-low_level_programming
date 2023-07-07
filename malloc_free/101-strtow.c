@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 /**
  * wordcnt - Count how many words separated by a space are in a string.
@@ -40,6 +41,8 @@ char **strtow(char *str)
 	int i = 0, count = 0, j = 0;
 	char **p;
 
+	if (str == NULL || strlen(str) == 0)
+		return (NULL);
 	p = malloc(sizeof(*p) * (wordcnt(str)));
 
 	if (p == NULL)
@@ -56,7 +59,6 @@ char **strtow(char *str)
 		}
 		p[i] = malloc(sizeof(char) * (count + 1));
 		count = 0;
-
 		if (p[i] == NULL)
 			return (NULL);
 	}
