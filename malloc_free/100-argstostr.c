@@ -66,6 +66,6 @@ char *argstostr(int ac, char **av)
 		}
 	}
 
-	p[i] = '\0';
+	p[i] = '\n';
 	return (p);
 }
