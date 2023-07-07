@@ -41,9 +41,9 @@ char **strtow(char *str)
 	int i = 0, count = 0, j = 0;
 	char **p;
 
-	if (str == NULL || strlen(str) == 0)
+	if (str == NULL || strlen(str) == 0 || *str == ' ')
 		return (NULL);
-	p = malloc(sizeof(*p) * (wordcnt(str)));
+	p = malloc(sizeof(*p) * (wordcnt(str) + 1));
 
 	if (p == NULL)
 		return (NULL);
