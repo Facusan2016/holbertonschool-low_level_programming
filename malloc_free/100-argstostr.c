@@ -1,7 +1,28 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
 #include <stdio.h>
+#include <string.h>
+
+/**
+ * argslen - Concatenates all the arguments of your program.
+ * @ac: Amount of arguments.
+ * @av: Arrasy containing the arguments.
+ * Return: String.
+ */
+
+int argslen(int ac, char **av)
+{
+	int i = 1;
+	unsigned int tlen = 0;
+
+	while (i < ac)
+	{
+		tlen += strlen(av[i]);
+		i++;
+	}
+
+	return (tlen);
+}
 
 /**
  * argstostr - Concatenates all the arguments of your program.
@@ -14,15 +35,14 @@ char *argstostr(int ac, char **av)
 {
 	int i, j;
 
-	int tlen, tcor = 0;
-
+	int tcor = 0;
+	int tlen;
 	char *p;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
 
-	for (i = 1; i < ac; i++)
-		tlen += strlen(av[i]);
+	tlen = argslen(ac, av);
 
 	p = malloc(sizeof(char) * (tlen + (ac - 1)));
 
@@ -34,18 +54,15 @@ char *argstostr(int ac, char **av)
 
 	for (i = 0; i < (tlen + (ac - 1)) && av[tcor] != NULL; i++)
 	{
-
 		if (av[tcor][j] != '\0' && tcor < ac)
 		{
 			p[i] = av[tcor][j];
 			j++;
-
 		} else
 		{
 			p[i] = '\n';
 			tcor++;
 			j = 0;
-
 		}
 	}
 
