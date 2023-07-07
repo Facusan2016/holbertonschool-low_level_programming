@@ -11,17 +11,24 @@
 
 int wordcnt(char *str)
 {
-	int iter = 0, wc = 0;
+	int state = 0, wc = 0;
 
-	while (str[iter] != '\0')
+	while (*str)
 	{
-		if (str[iter] != ' ' && str[iter - 1] == ' ')
-			wc++;
-		iter++;
-	}
-	return (wc);
-}
+		if (*str == ' ')
+			state = 0;
+		else if (state == 0)
+		{
+			state = 1;
+			++wc;
+		}
 
+		str++;
+	}
+
+	return (wc);
+
+}
 /**
  * strtow - Splits a string into words.
  * @str: String to be splited.
