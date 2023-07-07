@@ -44,7 +44,7 @@ char *argstostr(int ac, char **av)
 
 	tlen = argslen(ac, av);
 
-	p = malloc(sizeof(char) * (tlen + (ac - 1)));
+	p = malloc(sizeof(char) * (tlen + (ac)));
 
 	if (p == NULL)
 		return (NULL);
