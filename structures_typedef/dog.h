@@ -17,6 +17,17 @@ struct dog
 	char *owner;
 };
 
+/**
+ * dog_t - New name for the type struct dog
+ * @name: Name of the dog.
+ * @age: Age of the dog.
+ * @owner: Owner of the dog.
+ *
+ * Description : A new name for the dog struct
+ */
+
+typedef struct dog dog_t;
+
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
 
