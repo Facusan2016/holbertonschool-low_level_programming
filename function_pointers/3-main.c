@@ -13,24 +13,31 @@
 
 int main(int argc, char *argv[])
 {
+
 	if (argc < 4)
 	{
-		printf("Error1\n");
+		printf("Error\n");
 		exit(98);
 
-	} else if (get_op_func(argv[2]) == NULL)
+	}
+
+	else if (get_op_func(argv[2]) == NULL)
 	{
-		printf("Error2\n");
+		printf("Error\n");
 		exit(99);
 
-	} else if ((*argv[2] == '/' || *argv[2] == '%') && atoi(argv[3]) == 0)
+	}
+
+	else if ((*argv[2] == '/' || *argv[2] == '%') && atoi(argv[3]) == 0)
 	{
-		printf("Error3\n");
+		printf("Error\n");
 		exit(100);
+
 	} else
 	{
-		return ((get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3])));
+		printf("%i\n", get_op_func(argv[2])(atoi(argv[1]), atoi(argv[3])));
 	}
 
 	return (0);
+
 }
