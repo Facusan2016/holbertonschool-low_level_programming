@@ -56,7 +56,14 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 
-	while (format[i] != '\0' && format != NULL)
+	if (format == NULL)
+	{
+		printf("\n");
+		return (NULL);
+
+	}
+
+	while (format[i] != '\0')
 	{
 		selector(format[i], args, &flag);
 
