@@ -1,0 +1,4 @@
+Exercise 0: Write a function that returns the sum of all its parameters.
+Exercise 1: Write a function that prints numbers, followed by a new line.
+Exercise 2: Write a function that prints strings, followed by a new line.
+Exercise 3: Write a function that prints anything.
