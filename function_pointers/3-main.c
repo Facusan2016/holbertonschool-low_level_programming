@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 	}
 
-	else if (get_op_func(argv[2]) == NULL)
+	else if (get_op_func(argv[2]) == NULL || strlen(argv[2]) > 1)
 	{
 		printf("Error\n");
 		exit(99);
