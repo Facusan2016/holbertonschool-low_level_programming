@@ -17,7 +17,10 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	int num = 0;
 
 	if (n == 0)
+	{
+		printf("\n");
 		return;
+	}
 
 	va_start(arg, n);
 
