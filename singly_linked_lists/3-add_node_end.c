@@ -1,5 +1,7 @@
 #include "lists.h"
+#ifndef _DEFAULT_SOURCE
 #define _DEFAULT_SOURCE
+#endif
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
