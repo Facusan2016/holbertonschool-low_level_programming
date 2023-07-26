@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
+#include <limits.h>
 
 /**
  *	set_bit - sets the value of a bit to 1 at a given index.
@@ -13,8 +14,12 @@ int set_bit(unsigned long int *n, unsigned int index)
 
 	unsigned long int switcher, copy;
 
+	if (index > sizeof(unsigned long int) * CHAR_BIT)
+		return (-1);
+
 	copy = *n;
 	switcher = 1;
+
 
 	while (index > 0)
 	{
@@ -23,11 +28,6 @@ int set_bit(unsigned long int *n, unsigned int index)
 		index--;
 	}
 
-	if (index == 0)
-	{
-		*n = switcher | *n;
-		return (1);
-	}
-
-	return (-1);
+	*n = switcher | *n;
+	return (1);
 }
