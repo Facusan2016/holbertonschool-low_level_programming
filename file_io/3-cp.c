@@ -5,6 +5,22 @@
 #include <unistd.h>
 
 /**
+ * print_err_close - Prints the corresponding error
+ * @fd1 : File from.
+ * @fd2 : File to.
+ * Return: Nothing.
+ */
+
+void print_err_close(int fd1, int fd2)
+{
+	if (fd1 == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd1);
+
+	if (fd2 == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd2);
+}
+
+/**
  *	main - The main Function that copy one file to another new one.
  *	@argc: Arguments counter.
  *	@argv: Vector of arguments.
@@ -34,13 +50,13 @@ int main(int argc, char *argv[])
 		wr = write(fd2, buff, rd);
 		if (wr == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 		}
 	}
 	if (rd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	};
 
@@ -48,7 +64,7 @@ int main(int argc, char *argv[])
 	fd2 = close(fd2);
 	if (fd1 == -1 || fd2 == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", fd1 == -1 ? fd1 : fd2);
+		print_err_close(fd1, fd2);
 		exit(100);
 	}
 	return (0);
