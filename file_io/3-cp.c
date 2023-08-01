@@ -29,15 +29,8 @@ int main(int argc, char *argv[])
 	fd1 = open(file_from, O_RDONLY);
 	fd2 = open(file_to, O_CREAT | O_TRUNC | O_WRONLY, 00664);
 
-	if (fd1 == -1 || fd2 == -1 || argv[1] == NULL)
-		return (-1);
-	while ((rd = read(fd1, buff, sizeof(buff))) != 0)
+	while ((rd = read(fd1, buff, sizeof(buff))) > 0)
 	{
-		if (rd == -1)
-		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		};
 		wr = write(fd2, buff, rd);
 		if (wr == -1)
 		{
@@ -45,6 +38,11 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
+	if (rd == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	};
 
 	fd1 = close(fd1);
 	fd2 = close(fd2);
