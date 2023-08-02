@@ -1,5 +1,6 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
+#include <stdlib.h>
 
 /**
  * struct hash_node_s - Node of a hash table
