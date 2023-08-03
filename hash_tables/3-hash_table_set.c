@@ -1,5 +1,6 @@
 #include "hash_tables.h"
 #include <string.h>
+#include <stdio.h>
 /**
  * hash_table_set - Write a function that adds an element to the hash table.
  * @ht: Hash table to add the new node.
@@ -11,7 +12,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int pos;
-	hash_node_t *new;
+	hash_node_t *new, *iter;
 
 	if (key == NULL || *key == '\0')
 		return (0);
@@ -20,15 +21,33 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		value = "(nil)";
 
 	pos = key_index((const unsigned char *)key, ht->size);
-	new = malloc(sizeof(hash_node_t));
 
-	if (new == NULL)
-		return (0);
+	iter = ht->array[pos];
 
-	new->key = strdup(key);
-	new->value = strdup(value);
-	new->next = ht->array[pos];
-	ht->array[pos] = new;
+	while (iter != NULL && strcmp(iter->key, key) != 0)
+		iter = iter->next;
+
+	if (iter == NULL)
+	{
+		new = malloc(sizeof(hash_node_t));
+		if (new == NULL)
+			return (0);
+		new->key = strdup(key);
+		if (new->key == NULL)
+			return (0);
+		new->value = strdup(value);
+		if (new->value == NULL)
+			return (0);
+		new->next = ht->array[pos];
+		ht->array[pos] = new;
+
+	} else
+	{
+		free(iter->value);
+		iter->value = strdup(value);
+		if (iter->value == NULL)
+			return (0);
+	}
 
 	return (1);
 }
