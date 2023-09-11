@@ -40,22 +40,20 @@ int binary_search(int *array, size_t size, int value)
 
 	lo = 0;
 	hi = size - 1;
-	print_array(array, lo, hi);
 
 	while (lo <= hi)
 	{
+		print_array(array, lo, hi);
 		mid = (lo + hi) / 2;
 		if (array[mid] == value)
 			return (mid);
 		else if (value > array[mid])
 		{
 			lo = mid + 1;
-			print_array(array, lo, hi);
 		}
 		else
 		{
 			hi = mid - 1;
-			print_array(array, lo, hi);
 		}
 	}
 
